@@ -1,17 +1,26 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+game_levels = {
+    'puzzle': 1,
+    'maze': 10,
+    'bird': 10,
+    'turtle': 9,
+    'movie': 9,
+    'music': 9,
+    'pond-tutor': 10
+}
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
-    MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.qcloudmail.com')
+    MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.163.com')
     MAIL_PORT = int(os.environ.get('MAIL_PORT', '465'))
-    MAIL_USE_TLS = os.environ.get('MAIL_USE_SSL', 'true').lower() in \
+    MAIL_USE_SSL = os.environ.get('MAIL_USE_SSL', 'true').lower() in \
         ['true', 'on', '1']
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or 'software'
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or 'JhonyBD08m25d'
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or 'jhony2022@163.com'
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or 'UNPDXZOFNVMCCAXI'
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
-    FLASKY_MAIL_SENDER = 'software<software@soft.codestraveler.tech>'
+    FLASKY_MAIL_SENDER = 'jhony2022@163.com'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
