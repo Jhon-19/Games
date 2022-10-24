@@ -17,7 +17,6 @@ document.onreadystatechange = function () {
             url: '/record',
             type: 'POST',
             contentType: 'application/json',
-            dataType: 'jsonp',
             data: JSON.stringify({'key_list': key_list}),
             success: function (result) {
                 console.log(result);

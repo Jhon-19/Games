@@ -14,12 +14,10 @@ def record():
 
     # time_list = score_dict.setdefault(game, [])
     # time_list.append(datetime.now())
+    
 
 
-
-    response = make_response(json.dumps({'test': key_list}))
-    # response.headers['Access-Control-Allow-Origin'] = '*'
-    return response
+    return 'data recorded.'
 
 
 def parse_key_list(key_list):
