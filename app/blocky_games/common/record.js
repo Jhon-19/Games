@@ -36,7 +36,7 @@ function show_scores() {
     $('#show_scores').click(() => {
         let appName = location.pathname.match(/\/([-\w]+)(\.html)?$/);
         appName = appName ? appName[1].replace('-', '/') : 'index';
-        window.location = '/show_record?game=' + appName;
+        window.location = '/show_scores?game=' + appName;
     });
 }
 
