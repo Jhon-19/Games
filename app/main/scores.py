@@ -5,7 +5,6 @@ from flask import request, render_template
 import json
 from config import game_levels
 from ..models import db, Score, User
-from sqlalchemy import desc
 
 score_dict = {}
 level_dict = {}
@@ -82,7 +81,7 @@ def show_scores():
     if game in game_levels.keys():
         scores = Score.query. \
             filter(Score.game_name == game) \
-            .order_by(desc(Score.time_cost)).all()
+            .order_by(Score.time_cost).all()
         scores_tuple = ((index + 1, score) for index, score in enumerate(scores))
         response = render_template(
             'scores.html',
