@@ -13,6 +13,7 @@ db = SQLAlchemy()
 
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
+login_manager.login_message = '此页面需要登录才能访问'
 
 
 def create_app(config_name):

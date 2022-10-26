@@ -1,13 +1,13 @@
-Dear {{ user.username }},
+您好， {{ user.username }},
 
-Welcome to Flasky!
+欢迎访问 Blockly Games
 
-To confirm your account please click on the following link:
+请点击以下链接以确认您的账户：
 
 {{ url_for('auth.confirm', token=token, _external=True) }}
 
-Sincerely,
+你真诚的,
 
-The Flasky Team
+软件工程开发小组
 
-Note: replies to this email address are not monitored.
+注意：请不要回复此邮件。

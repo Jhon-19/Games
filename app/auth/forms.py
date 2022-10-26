@@ -6,25 +6,24 @@ from ..models import User
 
 
 class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Length(1, 64),
+    email = StringField('邮箱', validators=[DataRequired(), Length(1, 64),
                                              Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Keep me logged in')
-    submit = SubmitField('Log In')
+    password = PasswordField('密码', validators=[DataRequired()])
+    remember_me = BooleanField('记住我')
+    submit = SubmitField('登入')
 
 
 class RegistrationForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Length(1, 64),
+    email = StringField('邮箱', validators=[DataRequired(), Length(1, 64),
                                              Email()])
-    username = StringField('Username', validators=[
+    username = StringField('用户名', validators=[
         DataRequired(), Length(1, 64),
         Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
-               'Usernames must have only letters, numbers, dots or '
-               'underscores')])
-    password = PasswordField('Password', validators=[
-        DataRequired(), EqualTo('password2', message='Passwords must match.')])
-    password2 = PasswordField('Confirm password', validators=[DataRequired()])
-    submit = SubmitField('Register')
+               '用户名只能为字符、数字或下划线')])
+    password = PasswordField('密码', validators=[
+        DataRequired(), EqualTo('password2', message='前后密码输入不一致')])
+    password2 = PasswordField('确认密码', validators=[DataRequired()])
+    submit = SubmitField('注册')
 
     def validate_email(self, field):
         if User.query.filter_by(email=field.data.lower()).first():

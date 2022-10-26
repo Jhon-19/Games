@@ -3,6 +3,8 @@ from config import game_levels
 import random
 from . import main
 
+# 在main/__init__.py中最后一行加入from . import后面加入test
+
 user_list = ['A1', 'A2', 'A3', 'A4']
 
 @main.route('/test/generate_fake_scores', methods=['GET'])
