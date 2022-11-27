@@ -79,6 +79,7 @@ def student_init():
 
 @study.route('/init_students', methods=['GET'])
 def init_students():
+    db.drop_all()
     db.create_all()
     today = datetime.now()
     for student_name in students_list:
