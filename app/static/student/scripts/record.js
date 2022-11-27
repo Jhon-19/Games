@@ -17,5 +17,5 @@ record_btn.click(()=>{
             record_btn.addClass('text-success');
         }
     });
-    localStorage.setItem('student_name', student_name);
+    localStorage.setItem('student_name', student_name_input.val());
 });
