@@ -4,15 +4,6 @@ from flask import current_app
 from flask_login import UserMixin
 from . import db, login_manager
 
-# class Role(db.Model):
-#     __tablename__ = 'roles'
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String(64), unique=True)
-#     users = db.relationship('User', backref='role', lazy='dynamic')
-#
-#     def __repr__(self):
-#         return '<Role %r>' % self.name
-
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
@@ -59,8 +50,16 @@ def load_user(user_id):
 
 
 class Score(db.Model):
-    __table__name = 'scores'
+    __tablename__ = 'scores'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True)
     game_name = db.Column(db.String(32))
     time_cost = db.Column(db.Integer)
+
+
+class Student(db.Model):
+    __tablename__ = 'students'
+    id = db.Column(db.Integer, primary_key=True)
+    student_name = db.Column(db.String(32))
+    record_day = db.Column(db.String(64))
+    auto_record = db.Column(db.Boolean, default=False)
