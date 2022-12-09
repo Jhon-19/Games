@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="google" value="notranslate">
+    <meta name="viewport"
+          content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description"
+          content="Sudoku is a deep-dive into loops and an introduction to 2D arrays. It starts as a tutor simply, but every level is more challenging than the last.">
+    <title>Blockly Games : Sudoku</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/sudoku.css') }}">
+    <!-- <script src="boot.js"></script> -->
+    <!-- some addition style setting -->
+    <script src="{{ url_for('static', filename='scripts/sudoku/jquery.min.js') }}"></script>
+</head>
+
+<body>
+<!-- the different parts -->
+{% if level == 1 %}
+    {% include 'sudoku/sudoku_1.html' %}
+{% elif level == 2 %}
+    {% include 'sudoku/sudoku_2.html' %}
+{% elif level == 3 %}
+    {% include 'sudoku/sudoku_3.html' %}
+{% elif level == 4 %}
+    {% include 'sudoku/sudoku_4.html' %}
+{% elif level == 5 %}
+    {% include 'sudoku/sudoku_5.html' %}
+{% elif level == 6 %}
+    {% include 'sudoku/sudoku_6.html' %}
+{% elif level == 7 %}
+    {% include 'sudoku/sudoku_7.html' %}
+{% elif level == 8 %}
+    {% include 'sudoku/sudoku_8.html' %}
+{% elif level == 9 %}
+    {% include 'sudoku/sudoku_9.html' %}
+{% elif level == 10 %}
+    {% include 'sudoku/sudoku_10.html' %}
+{% else %}
+    {% include 'sudoku/sudoku_1.html' %}
+{% endif %}
+<!-- Buttons and Guidance below -->
+<table>
+    <tr>
+        <td style="width: 0px; text-align: center; vertical-align: top;">
+        <td>
+            <button id="runBtn" class="primary" title="Run the program you wrote">
+                <img src="{{ url_for('static', filename='common/1x1.gif') }}" class="run icon21"> 运行程序
+            </button>
+            <button id="resetBtn" class="primary"
+                    title="Stop the program and reset the level.">
+                <img src="{{ url_for('static', filename='common/1x1.gif') }}" class="stop icon21"> 重置
+            </button>
+        </td>
+        <td>
+            <button id="stepBtn" class="primary" title="Run step by step">
+                <img src="{{ url_for('static', filename='common/1x1.gif') }}" class="run icon21"> 单步运行
+            </button>
+        </td>
+    </tr>
+</table>
+&nbsp;
+<div id="dialog">
+    <table>
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='common/help.png') }}">
+            </td>
+            <td>&nbsp;</td>
+            <td style="width: 300px;">
+                You should put a number in the blank to make sure the sum of this three block is 10.
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- the Workspace on Right -->
+<div id="blocklyDiv">
+</div>
+<!-- <noscript>Blockly Games requires JavaScript.</noscript> -->
+<script src="{{ url_for('static', filename='scripts/sudoku/acorn_interpreter.js') }}"></script>
+<script src="https://unpkg.com/blockly"></script>
+<script src="{{ url_for('static', filename='scripts/sudoku/zh-hans.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/sudoku/sudo_helper.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/sudoku/step_helper.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/sudoku/main.js') }}"></script>
+</body>
+</html>
+

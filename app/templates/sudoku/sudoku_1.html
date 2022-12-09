@@ -1,0 +1,43 @@
+  <!-- HeadBar -->
+  <table width="100%">
+    <tr>
+      <td>
+        <h1>
+          <a href="https://blockly.games">Blockly Games</a> : Sudoku
+          &nbsp  <span class="level_number level_done" id="level1">1</span> 
+          <a class="level_dot" id="level2" href="sudoku_2.html"></a> 
+          <a class="level_dot" id="level3" href="sudoku_3.html"></a> 
+          <a class="level_dot" id="level4" href="sudoku_4.html"></a> 
+          <a class="level_dot" id="level5" href="sudoku_5.html"></a> 
+          <a class="level_dot" id="level6" href="sudoku_6.html"></a> 
+          <a class="level_dot" id="level7" href="sudoku_7.html"></a> 
+          <a class="level_dot" id="level8" href="sudoku_8.html"></a> 
+          <a class="level_dot" id="level9" href="sudoku_9.html"></a> 
+          <a class="level_number" id="level10" href="sudoku_10.html">10</a>
+        </h1>
+      </td>
+    </tr>
+  </table>
+
+  <!-- the Display part on Left: 九宫格 -->
+  <div id="visualization">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svgSudoku" width="400px" height="400px">
+      <g id="look">
+        <path d="M 0,-15 a 15 15 0 0 1 15 15" />
+        <path d="M 0,-35 a 35 35 0 0 1 35 35" />
+        <path d="M 0,-55 a 55 55 0 0 1 55 55" />
+      </g>
+    </svg>
+    <div id="capacityBubble">
+      <div id="capacity"></div>
+    </div>
+  </div>
+  <div id="sudoku_table">                
+    <table>
+        <tr class="sudoRow">
+          <td class="sudoku">(1,1)</td>
+          <td class="sudoku">(1,2)</td>
+          <td class="sudoku">(1,3)</td>
+        </tr>
+    </table>
+  </div>
