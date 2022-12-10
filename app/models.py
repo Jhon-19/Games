@@ -59,7 +59,7 @@ def load_user(user_id):
 
 
 class Score(db.Model):
-    __table__name = 'scores'
+    __tablename__ = 'scores'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True)
     game_name = db.Column(db.String(32))

@@ -11,7 +11,6 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/common.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/sudoku.css') }}">
-    <!-- <script src="boot.js"></script> -->
     <!-- some addition style setting -->
     <script src="{{ url_for('static', filename='scripts/sudoku/jquery.min.js') }}"></script>
 </head>
@@ -49,6 +48,8 @@
             <button id="runBtn" class="primary" title="Run the program you wrote">
                 <img src="{{ url_for('static', filename='common/1x1.gif') }}" class="run icon21"> 运行程序
             </button>
+        </td>
+        <td>
             <button id="resetBtn" class="primary"
                     title="Stop the program and reset the level.">
                 <img src="{{ url_for('static', filename='common/1x1.gif') }}" class="stop icon21"> 重置
@@ -85,6 +86,7 @@
 <script src="{{ url_for('static', filename='scripts/sudoku/zh-hans.js') }}"></script>
 <script src="{{ url_for('static', filename='scripts/sudoku/sudo_helper.js') }}"></script>
 <script src="{{ url_for('static', filename='scripts/sudoku/step_helper.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/sudoku/config.js') }}"></script>
 <script src="{{ url_for('static', filename='scripts/sudoku/main.js') }}"></script>
 </body>
 </html>

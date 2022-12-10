@@ -254,3 +254,7 @@ workspace.addChangeListener(function (event) {
         resetStepUi(true);
     }
 });
+
+function init_sudo(){
+
+}
