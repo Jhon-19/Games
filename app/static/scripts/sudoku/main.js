@@ -1,10 +1,10 @@
-const toolbox = {
+let toolbox = {
     'kind': 'categoryToolbox',
     'contents': [
         {
             'kind': 'category',
             'name': '数独工具',
-            "categorystyle":"procedure_category",
+            "categorystyle": "procedure_category",
             'contents': [
                 {
                     'kind': 'block',
@@ -57,7 +57,7 @@ const toolbox = {
         {
             "kind": "category",
             "name": "数学工具",
-            "categorystyle":"math_category",
+            "categorystyle": "math_category",
             "contents": [
                 {
                     "kind": "block",
@@ -224,16 +224,60 @@ const toolbox = {
     ]
 }
 
+const externalTool = [
+    {
+        'kind': 'block',
+        'type': 'auto_solve'
+    },
+    {
+        'kind': 'block',
+        'type': 'basic_solve'
+    },
+];
+
+let sudoRows = $('.sudoRow');
+
+let args = window.location.search
+let level = '1';
+if (args.length > 0) {
+    level = args.replaceAll('?level=', '');
+}
+let sudoMatrix0 = levelMatrices[level];
+
+if(parseInt(level) >= 7){
+    toolbox.contents[0].contents = toolbox.contents[0].contents.concat(externalTool);
+}
+
+let tipsTd = $('#tips');
+
 let workspace = Blockly.inject('blocklyDiv', {
     toolbox: toolbox,
     scrollbars: true,
 });
+
+$.ajax({
+    url: '/read_records',
+    type: 'GET',
+    success: (result) => {
+        let record_levels = JSON.parse(result)['record_levels'];
+        label_levels(record_levels);
+        console.log(record_levels);
+    }
+});
+
+function label_levels(record_levels){
+    for(let i = 0; i < record_levels.length; i++){
+        let levelId = `#level${record_levels[i]}`;
+        $(levelId).css('background', 'rgba(174,174,250,0.2)');
+    }
+}
 
 Blockly.JavaScript.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
 Blockly.JavaScript.addReservedWords('highlightBlock');
 
 $('#runBtn').click(() => {
     let code = Blockly.JavaScript.workspaceToCode(Blockly.common.getMainWorkspace());
+    code = 'initSudo();\n' + code+'judgeAccept();\n';
     let myInterpreter = new Interpreter(code, initApi);
     try {
         myInterpreter.run();
@@ -244,8 +288,8 @@ $('#runBtn').click(() => {
 
 $('#stepBtn').click(stepCode);
 
-$('#resetBtn').click(()=>{
-
+$('#resetBtn').click(() => {
+    wrapperInitSudo();
 });
 
 workspace.addChangeListener(function (event) {
@@ -255,6 +299,13 @@ workspace.addChangeListener(function (event) {
     }
 });
 
-function init_sudo(){
+let wrapperInitSudo = function initSudo() {
+    initTip();
+    setSudoMatrix(sudoMatrix0);
+}
 
+wrapperInitSudo();
+
+function initTip(){
+    tipsTd.text(levelTips[level]);
 }

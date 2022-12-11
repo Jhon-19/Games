@@ -12,4 +12,6 @@ def index():
 @login_required
 def sudoku():
     level = request.args.get('level', 1, type=int)
+    if not (level >= 1 and level <= 10):
+        return redirect('/sudoku')
     return render_template('sudoku/sudoku_base.html', level=level)
