@@ -35,7 +35,7 @@ def generate(level = 2):
     #挖空,pre变成题目本身
     for serial in range(9):
         num_list = get_random_unit()
-        num = random.randint(2+level,5+level)#难度控制
+        num = random.randint(3+level,4+level)#难度控制
         for i in range(num):
             j = num_list.pop(0) - 1
             x = serial//3*3 + j//3 
@@ -50,23 +50,31 @@ def generate(level = 2):
     #cmp表示逆序构造与顺序求解是否一致
     cmp = (matrixStart == pre)
     TF = cmp.all()
-    return TF , problem , pre
-"""    print(matrixStart,"\n")
+    return TF , problem , pre , exc
+"""    print("------------------------------------------")
+    print(matrixStart,"\n")
     print(problem,"\n")
     print(pre,"\n")
     print(cmp.all())
     print(exc)"""
-
+    
+def zeroNum(Zero):
+    step = 0
+    for i in range(9):
+        for j in range(9):
+            if Zero[i][j] == 0:
+                step = step + 1
+    return step
 
 def getSudoku():
     while True:
-        TF , Sudoku , Answer = generate()
-        if TF:
+        TF , Sudoku , Answer , Zero = generate()
+        if TF and zeroNum(Zero)>15:
             break
     return Sudoku , Answer
 
 
-# if __name__ == "__main__":
-#     A , B = getSudoku()
-#     print(A,"\n\n")
-#     print(B)
+if __name__ == "__main__":
+    A , B  = getSudoku()
+    print(A,"\n\n")
+    print(B,"\n\n")

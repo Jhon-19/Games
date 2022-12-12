@@ -177,12 +177,12 @@ Blockly.defineBlocksWithJsonArray([
             {
                 "type": "input_value",
                 "name": "row",
-                "check": "Number"
+                "check": "Number",
             },
             {
                 "type": "input_value",
                 "name": "col",
-                "check": "Number"
+                "check": "Number",
             }
         ],
         "inputsInline": true,
@@ -244,7 +244,7 @@ Blockly.JavaScript['sudo_getter'] = function (block) {
     var value_row = Blockly.JavaScript.valueToCode(block, 'row', Blockly.JavaScript.ORDER_ATOMIC);
     var value_col = Blockly.JavaScript.valueToCode(block, 'col', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = `getSudo(${value_row - 1}, ${value_col - 1})`;
+    var code = `getSudo(${value_row}- 1, ${value_col}- 1)`;
     // TODO: Change ORDER_NONE to the correct strength.
     return [code, Blockly.JavaScript.ORDER_NONE];
 };
@@ -261,14 +261,14 @@ Blockly.JavaScript['basic_solve'] = function (block) {
     return code;
 };
 
-Blockly.JavaScript['println'] = function(block) {
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = `println(${value_name});\n`;
-  return code;
+Blockly.JavaScript['println'] = function (block) {
+    var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+    // TODO: Assemble JavaScript into code variable.
+    var code = `println(${value_name});\n`;
+    return code;
 };
 
-let wrapperPrintln = function println(value){
+let wrapperPrintln = function println(value) {
     tipsTd.text(JSON.stringify(value));
 }
 
