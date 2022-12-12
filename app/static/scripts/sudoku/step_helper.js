@@ -54,6 +54,9 @@ function initApi(interpreter, globalObject) {
     interpreter.setProperty(globalObject, 'judgeAccept',
         interpreter.createNativeFunction(wrapperJudgeAccept));
 
+    // Add an API function for judgeAccept function
+    interpreter.setProperty(globalObject, 'println',
+        interpreter.createNativeFunction(wrapperPrintln));
 }
 
 var myInterpreter = null;

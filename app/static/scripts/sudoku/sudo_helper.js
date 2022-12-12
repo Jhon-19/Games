@@ -204,6 +204,21 @@ Blockly.defineBlocksWithJsonArray([
         "colour": 210,
         "tooltip": "按照行、列、九宫格来推断出应填的数字",
         "helpUrl": ""
+    },
+    {
+        "type": "println",
+        "message0": "打印 %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 180,
+        "tooltip": "打印变量",
+        "helpUrl": ""
     }
 ]);
 
@@ -245,6 +260,17 @@ Blockly.JavaScript['basic_solve'] = function (block) {
     var code = 'basicSolve();\n';
     return code;
 };
+
+Blockly.JavaScript['println'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = `println(${value_name});\n`;
+  return code;
+};
+
+let wrapperPrintln = function println(value){
+    tipsTd.text(JSON.stringify(value));
+}
 
 let wrapperSetSudo = function setSudo(x, y, val) {
     let targetItem = sudoRows.eq(x).children('td').eq(y);

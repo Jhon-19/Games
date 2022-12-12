@@ -5,17 +5,30 @@ let level = '1';
 if (args.length > 0) {
     level = args.replaceAll('?level=', '');
 }
-let sudoMatrix0 = levelMatrices[level];
-
 let level_int = parseInt(level);
+
+let sudoMatrix0 = null;
+if (level_int === 10) {
+    $.ajax({
+        url: '/auto_sudo',
+        type: 'GET',
+        success: (result) => {
+            sudoMatrix0 = JSON.parse(result)['sudo_matrix'];
+            wrapperInitSudo();
+        }
+    });
+} else {
+    sudoMatrix0 = levelMatrices[level];
+}
+
 let toolbox;
-if(level_int >= 1 && level_int <= 2){
+if (level_int >= 1 && level_int <= 2) {
     toolbox = levelToolbox.toolbox1;
-}else if(level_int >= 3 && level_int <= 5){
+} else if (level_int >= 3 && level_int <= 5) {
     toolbox = levelToolbox.toolbox2;
-}else if(level_int === 6){
+} else if (level_int === 6) {
     toolbox = levelToolbox.toolbox3;
-}else{
+} else {
     toolbox = levelToolbox.toolbox4;
 }
 
@@ -32,7 +45,7 @@ $.ajax({
     success: (result) => {
         let record_levels = JSON.parse(result)['record_levels'];
         label_levels(record_levels);
-        console.log(record_levels);
+        // console.log(record_levels);
     }
 });
 
@@ -75,7 +88,9 @@ let wrapperInitSudo = function initSudo() {
     setSudoMatrix(sudoMatrix0);
 }
 
-wrapperInitSudo();
+if(sudoMatrix0 !== null){
+    wrapperInitSudo();
+}
 
 function initTip() {
     tipsTd.text(levelTips[level]);

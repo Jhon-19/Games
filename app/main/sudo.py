@@ -9,6 +9,7 @@ import numpy as np
 from .sudoku.judgeAccept_6 import judgeAcceptfifteen, judgeAcceptThree, judgeAcceptNine
 from .sudoku.judgeRepeat_6 import judgeRepeatNine, judgeRepeatThree
 from ..models import db
+from .sudoku.generate import getSudoku
 
 
 @main.route('/read_records', methods=['GET'])
@@ -60,6 +61,13 @@ def sudo_solve_steps():
     sudo_matrix = data['sudo_matrix']
     solution_steps = exclusion(sudo_matrix).tolist()
     return json.dumps({'solution_steps': solution_steps})
+
+
+@main.route('/auto_sudo', methods=['GET'])
+@login_required
+def auto_sudo():
+    sudo_matrix, _ = getSudoku()
+    return json.dumps({'sudo_matrix': sudo_matrix.tolist()})
 
 
 accepted_levels = set()

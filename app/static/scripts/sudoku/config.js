@@ -45,17 +45,6 @@ let level9 = [
     [4, 1, 5, 3, 2, 9, 8, 6, 7],
     [9, 2, 8, 1, 6, 7, 5, 4, 3]
 ];
-let level10 = [
-    [0, 8, 4, 9, 5, 1, 7, 3, 6],
-    [1, 5, 9, 6, 7, 3, 2, 8, 4],
-    [3, 6, 7, 4, 8, 2, 1, 9, 5],
-    [5, 7, 2, 8, 3, 6, 4, 1, 9],
-    [8, 9, 3, 7, 1, 4, 6, 5, 2],
-    [6, 4, 1, 2, 9, 5, 3, 7, 8],
-    [7, 3, 6, 5, 4, 8, 9, 2, 1],
-    [4, 1, 5, 3, 2, 9, 8, 6, 7],
-    [9, 2, 8, 1, 6, 7, 5, 4, 3]
-];
 
 let levelMatrices = {
     '1': level1,
@@ -67,7 +56,6 @@ let levelMatrices = {
     '7': level7,
     '8': level8,
     '9': level9,
-    '10': level10
 }
 
 let tip1 = '上面表格中缺失的数字是1、2、3中的某一个，请使用积木块将其填充完整，保证与表格中其他数字不重复。';
@@ -106,6 +94,10 @@ const toolbox1 = {
                     'kind': 'block',
                     'type': 'sudo_setter'
                 },
+                {
+                    'kind': 'block',
+                    'type': 'println'
+                },
             ]
         }
     ]
@@ -126,6 +118,10 @@ const toolbox2 = {
                 {
                     'kind': 'block',
                     'type': 'sudo_setter_auto'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'println'
                 },
                 {
                     'kind': 'block',
@@ -267,7 +263,7 @@ const toolbox2 = {
             "custom": "VARIABLE"
         },
     ]
-}
+};
 
 const toolbox3 = {
     'kind': 'categoryToolbox',
@@ -284,6 +280,10 @@ const toolbox3 = {
                 {
                     'kind': 'block',
                     'type': 'sudo_setter_auto'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'println'
                 },
                 {
                     'kind': 'block',
@@ -440,7 +440,7 @@ const toolbox3 = {
             "custom": "VARIABLE"
         },
     ]
-}
+};
 
 const toolbox4 = {
     'kind': 'categoryToolbox',
@@ -457,6 +457,10 @@ const toolbox4 = {
                 {
                     'kind': 'block',
                     'type': 'sudo_setter_auto'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'println'
                 },
                 {
                     'kind': 'block',
@@ -621,7 +625,7 @@ const toolbox4 = {
             "custom": "VARIABLE"
         },
     ]
-}
+};
 
 const toolboxAll = {
     'kind': 'categoryToolbox',
@@ -638,6 +642,10 @@ const toolboxAll = {
                 {
                     'kind': 'block',
                     'type': 'sudo_setter_auto'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'println'
                 },
                 {
                     'kind': 'block',
@@ -729,7 +737,7 @@ const toolboxAll = {
                             "block": {
                                 "type": "math_number",
                                 "fields": {
-                                    "NUM": 10
+                                    "NUM": 9
                                 }
                             }
                         }
