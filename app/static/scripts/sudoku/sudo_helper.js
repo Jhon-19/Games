@@ -200,7 +200,7 @@ Blockly.defineBlocksWithJsonArray([
     },
     {
         "type": "basic_solve",
-        "message0": "基础推断",
+        "message0": "教学提示",
         "colour": 210,
         "tooltip": "按照行、列、九宫格来推断出应填的数字",
         "helpUrl": ""
@@ -253,7 +253,7 @@ let wrapperSetSudo = function setSudo(x, y, val) {
             'sudo_matrix': getSudoMatrix(),
             'num_triple': [x + 1, y + 1, val]
         };
-        if(x >= data['sudo_matrix'].length || y >= data['sudo_matrix'][0].length){
+        if (x >= data['sudo_matrix'].length || y >= data['sudo_matrix'][0].length) {
             return;
         }
         judgeError(data);
@@ -325,7 +325,15 @@ function setSudoItem(targetItem, val) {
 
 let wrapperGetSudo = function getSudo(x, y) {
     let targetItem = sudoRows.eq(x).children('td').eq(y);
-    return targetItem.text()
+    targetItem.css('background', 'rgb(99,231,243)');
+    setTimeout(() => {
+        targetItem.css('background', 'white');
+    }, 300);
+    let num = 0;
+    if (targetItem.text().length !== 0) {
+        num = parseInt(targetItem.text());
+    }
+    return num;
 }
 
 let wrapperEnableBtns = function enableBtns() {
