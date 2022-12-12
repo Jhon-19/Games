@@ -236,7 +236,7 @@ Blockly.JavaScript['sudo_setter_auto'] = function (block) {
     var value_col = Blockly.JavaScript.valueToCode(block, 'col', Blockly.JavaScript.ORDER_ATOMIC);
     var value_val = Blockly.JavaScript.valueToCode(block, 'val', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = `setSudo(${value_row - 1}, ${value_col - 1}, ${value_val});\n`;
+    var code = `setSudo(${value_row}-1, ${value_col}-1, ${value_val});\n`;
     return code;
 };
 
