@@ -1,157 +1,162 @@
-  <!-- HeadBar -->
-  <table width="100%">
+<!-- HeadBar -->
+<table width="100%">
     <tr>
-      <td>
-        <h1>
-          <a href="/">Blockly Games</a> : Sudoku
-          &nbsp  <a class="level_dot" id="level1" href="/sudoku?level=1"></a>
-          <a class="level_dot" id="level2" href="/sudoku?level=2"></a> 
-          <a class="level_dot" id="level3" href="/sudoku?level=3"></a> 
-          <a class="level_dot" id="level4" href="/sudoku?level=4"></a> 
-          <a class="level_dot" id="level5" href="/sudoku?level=5"></a> 
-          <a class="level_dot" id="level6" href="/sudoku?level=6"></a>   
-          <a class="level_dot" id="level7" href="/sudoku?level=7"></a>
-          <a class="level_dot" id="level8" href="/sudoku?level=8"></a> 
-          <span class="level_number level_done" id="level9">9</span> 
-          <a class="level_number" id="level10" href="/sudoku?level=10">10</a>
-        </h1>
-      </td>
+        <td>
+            <h1>
+          <a href="/">Sudoku</a>
+                &nbsp <a class="level_dot" id="level1" href="/sudoku?level=1"></a>
+                <a class="level_dot" id="level2" href="/sudoku?level=2"></a>
+                <a class="level_dot" id="level3" href="/sudoku?level=3"></a>
+                <a class="level_dot" id="level4" href="/sudoku?level=4"></a>
+                <a class="level_dot" id="level5" href="/sudoku?level=5"></a>
+                <a class="level_dot" id="level6" href="/sudoku?level=6"></a>
+                <a class="level_dot" id="level7" href="/sudoku?level=7"></a>
+                <a class="level_dot" id="level8" href="/sudoku?level=8"></a>
+                <span class="level_number level_done" id="level9">9</span>
+                <a class="level_number" id="level10" href="/sudoku?level=10">10</a>
+            </h1>
+        </td>
+        <td>
+            <button id="tip_btn">提示</button>
+        </td>
     </tr>
-  </table>
-
-  <!-- the Display part on Left: 九宫格 -->
-  <div id="visualization">
+</table>
+<div id="tip_mask">
+    <img class="tip_gif" src="{{ url_for('static', filename='/common/tips.gif') }}">
+</div>
+<!-- the Display part on Left: 九宫格 -->
+<div id="visualization">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svgSudoku" width="400px" height="450px">
-      <g id="look">
-        <path d="M 0,-15 a 15 15 0 0 1 15 15" />
-        <path d="M 0,-35 a 35 35 0 0 1 35 35" />
-        <path d="M 0,-55 a 55 55 0 0 1 55 55" />
-      </g>
+        <g id="look">
+            <path d="M 0,-15 a 15 15 0 0 1 15 15"/>
+            <path d="M 0,-35 a 35 35 0 0 1 35 35"/>
+            <path d="M 0,-55 a 55 55 0 0 1 55 55"/>
+        </g>
     </svg>
     <div id="capacityBubble">
-      <div id="capacity"></div>
+        <div id="capacity"></div>
     </div>
-  </div>
-  <div id="sudoku_big_table">                
+</div>
+<div id="sudoku_big_table">
     <table style="border-collapse: collapse;">
-      <tr class="sudoRow">
-        <td class="sudoku_block">1-1</td>
-        <td class="sudoku_block">1-1</td>
-        <td class="sudoku_block_right">1-1</td>
+        <tr class="sudoRow">
+            <td class="sudoku_block">1-1</td>
+            <td class="sudoku_block">1-1</td>
+            <td class="sudoku_block_right">1-1</td>
 
-        <td class="sudoku_block">2-1</td>
-        <td class="sudoku_block">2-1</td>
-        <td class="sudoku_block_right">2-1</td>
+            <td class="sudoku_block">2-1</td>
+            <td class="sudoku_block">2-1</td>
+            <td class="sudoku_block_right">2-1</td>
 
-        <td class="sudoku_block">3-1</td>
-        <td class="sudoku_block">3-1</td>
-        <td class="sudoku_block">3-1</td>
-      </tr>
-      <tr class="sudoRow">
-        <td class="sudoku_block">1-2</td>
-        <td class="sudoku_block">1-2</td>
-        <td class="sudoku_block_right">1-2</td>
+            <td class="sudoku_block">3-1</td>
+            <td class="sudoku_block">3-1</td>
+            <td class="sudoku_block">3-1</td>
+        </tr>
+        <tr class="sudoRow">
+            <td class="sudoku_block">1-2</td>
+            <td class="sudoku_block">1-2</td>
+            <td class="sudoku_block_right">1-2</td>
 
-        <td class="sudoku_block">2-2</td>
-        <td class="sudoku_block">2-2</td>
-        <td class="sudoku_block_right">2-2</td>
+            <td class="sudoku_block">2-2</td>
+            <td class="sudoku_block">2-2</td>
+            <td class="sudoku_block_right">2-2</td>
 
-        <td class="sudoku_block">3-2</td>
-        <td class="sudoku_block">3-2</td>
-        <td class="sudoku_block">3-2</td>
-      </tr>
-      <tr class="sudoRow">
-        <td class="sudoku_block">1-3</td>
-        <td class="sudoku_block">1-3</td>
-        <td class="sudoku_block_right">1-3</td>
+            <td class="sudoku_block">3-2</td>
+            <td class="sudoku_block">3-2</td>
+            <td class="sudoku_block">3-2</td>
+        </tr>
+        <tr class="sudoRow">
+            <td class="sudoku_block">1-3</td>
+            <td class="sudoku_block">1-3</td>
+            <td class="sudoku_block_right">1-3</td>
 
-        <td class="sudoku_block">2-3</td>
-        <td class="sudoku_block">2-3</td>
-        <td class="sudoku_block_right">2-3</td>
+            <td class="sudoku_block">2-3</td>
+            <td class="sudoku_block">2-3</td>
+            <td class="sudoku_block_right">2-3</td>
 
-        <td class="sudoku_block">3-3</td>
-        <td class="sudoku_block">3-3</td>
-        <td class="sudoku_block">3-3</td>
-      </tr>
-      
-      <tr class="sudoRow">
-        <td class="sudoku_block_top">4-1</td>
-        <td class="sudoku_block_top">4-1</td>
-        <td class="sudoku_block_top_right">4-1</td>
+            <td class="sudoku_block">3-3</td>
+            <td class="sudoku_block">3-3</td>
+            <td class="sudoku_block">3-3</td>
+        </tr>
 
-        <td class="sudoku_block_top">5-1</td>
-        <td class="sudoku_block_top">5-1</td>
-        <td class="sudoku_block_top_right">5-1</td>
+        <tr class="sudoRow">
+            <td class="sudoku_block_top">4-1</td>
+            <td class="sudoku_block_top">4-1</td>
+            <td class="sudoku_block_top_right">4-1</td>
 
-        <td class="sudoku_block_top">6-1</td>
-        <td class="sudoku_block_top">6-1</td>
-        <td class="sudoku_block_top">6-1</td>
-      </tr>
-      <tr class="sudoRow">
-        <td class="sudoku_block">4-2</td>
-        <td class="sudoku_block">4-2</td>
-        <td class="sudoku_block_right">4-2</td>
+            <td class="sudoku_block_top">5-1</td>
+            <td class="sudoku_block_top">5-1</td>
+            <td class="sudoku_block_top_right">5-1</td>
 
-        <td class="sudoku_block">5-2</td>
-        <td class="sudoku_block">5-2</td>
-        <td class="sudoku_block_right">5-2</td>
+            <td class="sudoku_block_top">6-1</td>
+            <td class="sudoku_block_top">6-1</td>
+            <td class="sudoku_block_top">6-1</td>
+        </tr>
+        <tr class="sudoRow">
+            <td class="sudoku_block">4-2</td>
+            <td class="sudoku_block">4-2</td>
+            <td class="sudoku_block_right">4-2</td>
 
-        <td class="sudoku_block">6-2</td>
-        <td class="sudoku_block">6-2</td>
-        <td class="sudoku_block">6-2</td>
-      </tr>
-      <tr class="sudoRow">
-        <td class="sudoku_block">4-3</td>
-        <td class="sudoku_block">4-3</td>
-        <td class="sudoku_block_right">4-3</td>
+            <td class="sudoku_block">5-2</td>
+            <td class="sudoku_block">5-2</td>
+            <td class="sudoku_block_right">5-2</td>
 
-        <td class="sudoku_block">5-3</td>
-        <td class="sudoku_block">5-3</td>
-        <td class="sudoku_block_right">5-3</td>
+            <td class="sudoku_block">6-2</td>
+            <td class="sudoku_block">6-2</td>
+            <td class="sudoku_block">6-2</td>
+        </tr>
+        <tr class="sudoRow">
+            <td class="sudoku_block">4-3</td>
+            <td class="sudoku_block">4-3</td>
+            <td class="sudoku_block_right">4-3</td>
 
-        <td class="sudoku_block">6-3</td>
-        <td class="sudoku_block">6-3</td>
-        <td class="sudoku_block">6-3</td>
-      </tr>
+            <td class="sudoku_block">5-3</td>
+            <td class="sudoku_block">5-3</td>
+            <td class="sudoku_block_right">5-3</td>
 
-      <tr class="sudoRow">
-        <td class="sudoku_block_top">7-1</td>
-        <td class="sudoku_block_top">7-1</td>
-        <td class="sudoku_block_top_right">7-1</td>
+            <td class="sudoku_block">6-3</td>
+            <td class="sudoku_block">6-3</td>
+            <td class="sudoku_block">6-3</td>
+        </tr>
 
-        <td class="sudoku_block_top">8-1</td>
-        <td class="sudoku_block_top">8-1</td>
-        <td class="sudoku_block_top_right">8-1</td>
+        <tr class="sudoRow">
+            <td class="sudoku_block_top">7-1</td>
+            <td class="sudoku_block_top">7-1</td>
+            <td class="sudoku_block_top_right">7-1</td>
 
-        <td class="sudoku_block_top">9-1</td>
-        <td class="sudoku_block_top">9-1</td>
-        <td class="sudoku_block_top">9-1</td>
-      </tr>
-      <tr class="sudoRow">
-        <td class="sudoku_block">7-2</td>
-        <td class="sudoku_block">7-2</td>
-        <td class="sudoku_block_right">7-2</td>
+            <td class="sudoku_block_top">8-1</td>
+            <td class="sudoku_block_top">8-1</td>
+            <td class="sudoku_block_top_right">8-1</td>
 
-        <td class="sudoku_block">8-2</td>
-        <td class="sudoku_block">8-2</td>
-        <td class="sudoku_block_right">8-2</td>
+            <td class="sudoku_block_top">9-1</td>
+            <td class="sudoku_block_top">9-1</td>
+            <td class="sudoku_block_top">9-1</td>
+        </tr>
+        <tr class="sudoRow">
+            <td class="sudoku_block">7-2</td>
+            <td class="sudoku_block">7-2</td>
+            <td class="sudoku_block_right">7-2</td>
 
-        <td class="sudoku_block">9-2</td>
-        <td class="sudoku_block">9-2</td>
-        <td class="sudoku_block">9-2</td>
-      </tr>
-      <tr class="sudoRow">
-        <td class="sudoku_block">7-3</td>
-        <td class="sudoku_block">7-3</td>
-        <td class="sudoku_block_right">7-3</td>
+            <td class="sudoku_block">8-2</td>
+            <td class="sudoku_block">8-2</td>
+            <td class="sudoku_block_right">8-2</td>
 
-        <td class="sudoku_block">8-3</td>
-        <td class="sudoku_block">8-3</td>
-        <td class="sudoku_block_right">8-3</td>
+            <td class="sudoku_block">9-2</td>
+            <td class="sudoku_block">9-2</td>
+            <td class="sudoku_block">9-2</td>
+        </tr>
+        <tr class="sudoRow">
+            <td class="sudoku_block">7-3</td>
+            <td class="sudoku_block">7-3</td>
+            <td class="sudoku_block_right">7-3</td>
 
-        <td class="sudoku_block">9-3</td>
-        <td class="sudoku_block">9-3</td>
-        <td class="sudoku_block">9-3</td>
-      </tr>
+            <td class="sudoku_block">8-3</td>
+            <td class="sudoku_block">8-3</td>
+            <td class="sudoku_block_right">8-3</td>
+
+            <td class="sudoku_block">9-3</td>
+            <td class="sudoku_block">9-3</td>
+            <td class="sudoku_block">9-3</td>
+        </tr>
     </table>
-  </div>
+</div>

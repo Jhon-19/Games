@@ -96,6 +96,25 @@ button.primary {
     color: #fff;
 }
 
+#tip_btn{
+    border: 1px solid #3980dd;
+    background-color: #396ddd;
+    color: #fff;
+}
+
+#tip_mask{
+    position: absolute;
+    z-index: 71;
+    opacity: 100%;
+    width: 99%;
+    height: 600px;
+}
+
+.tip_gif{
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
 button.secondary {
     border: 1px solid #4d90fe;
     background-color: #4d90fe;

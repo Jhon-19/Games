@@ -3,7 +3,7 @@
     <tr>
       <td>
         <h1>
-          <a href="/">Blockly Games</a> : Sudoku
+          <a href="/">Sudoku</a>
           &nbsp  <span class="level_number level_done" id="level1">1</span> 
           <a class="level_dot" id="level2" href="/sudoku?level=2"></a> 
           <a class="level_dot" id="level3" href="/sudoku?level=3"></a> 
@@ -16,8 +16,15 @@
           <a class="level_number" id="level10" href="/sudoku?level=10">10</a>
         </h1>
       </td>
+        <td>
+            <button id="tip_btn">提示</button>
+        </td>
     </tr>
   </table>
+
+  <div id="tip_mask">
+      <img class="tip_gif" src="{{ url_for('static', filename='/common/tips.gif') }}">
+  </div>
 
   <!-- the Display part on Left: 九宫格 -->
   <div id="visualization">

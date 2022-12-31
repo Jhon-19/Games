@@ -95,3 +95,20 @@ if(sudoMatrix0 !== null){
 function initTip() {
     tipsTd.text(levelTips[level]);
 }
+
+let tip_btn = $('#tip_btn');
+let tip_mask = $('#tip_mask');
+tip_btn.click(()=>{
+    let tip_off = tip_mask.css('display');
+    if(tip_off === 'none'){
+        tip_mask.css('display', 'block');
+        tip_btn.text('关闭');
+    }else{
+        tip_mask.css('display', 'none');
+        tip_btn.text('提示');
+    }
+});
+
+setTimeout(()=>{
+    tip_mask.css('display', 'none');
+}, 29000);
